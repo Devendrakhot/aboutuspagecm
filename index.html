@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chinmaya Mission – The Mission</title>
+
+  <!-- Tailwind & Axios -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <style>
+    /* Custom Theme */
+    .bg-darkBlue {
+      background-color: #0f172a;
+    }
+
+    .text-primary {
+      color: #facc15;
+    }
+
+    .text-primary-title {
+      color: #facc15;
+    }
+
+    .text-primary-text {
+      color: #f3f4f6;
+    }
+
+    /* No Scrollbar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Glance Section */
+    .glance-bg {
+      background: linear-gradient(135deg, #5e1111 0%, #7c1a1a 25%, #c94a4a 50%, #7c1a1a 75%, #5e1111 100%);
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .glance-divider-line {
+      position: relative;
+      margin: 2rem 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.1) 80%, transparent 100%);
+      border-radius: 1px;
+    }
+
+    .glance-divider-line::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 4px;
+      background: linear-gradient(45deg, #facc15, #f59e0b);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+    }
+
+    .glance-divider-line::after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.5rem;
+      filter: invert(100%);
+    }
+
+    /* Our Essence Gradient */
+    .our-essence-card {
+      background: linear-gradient(180deg, rgba(255, 153, 102, 0.5) 0%, rgba(255, 153, 102, 0.3) 40%, rgba(255, 153, 102, 0) 80%);
+    }
+
+ /* 🌐 Desktop smooth infinite scroll */
+@keyframes scroll-x-desktop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 📱 Mobile full scroll */
+@keyframes scroll-x-mobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Default: desktop animation */
+.animate-scroll-x {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: scroll-x-desktop 8s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover (desktop only) */
+.group:hover .animate-scroll-x {
+  animation-play-state: paused;
+}
+
+/* ✅ Mobile version — scrolls full width & faster */
+@media (max-width: 1024px) {
+  .animate-scroll-x {
+    animation: scroll-x-mobile 8s linear infinite !important;
+  }
+}
+
+
+
+  </style>
+</head>
+
+<body class="bg-white relative text-gray-900">
+
+  <!-- ===== Component 1: From Knowledge to Wisdom (DARK) ===== -->
+  <section id="section1" class="relative bg-[#2a0001] pt-20 pb-20 text-white overflow-hidden">
+    <img src="Vector1.png" alt="vector"
+      class="absolute left-0 bottom-0 h-[80px] md:h-[100px] lg:h-[180px] w-auto opacity-60">
+    <img src="Vector2.png" alt="vector"
+      class="absolute right-0 bottom-0 h-[80px] md:h-[100px] lg:h-[180px] w-auto rotate-90 opacity-60">
+    <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-10 relative px-4 items-center">
+      <div id="section1-image" class="max-w-[462px] w-full flex items-center justify-center">
+        <!-- Image populated dynamically -->
+      </div>
+      <div class="flex flex-col gap-4 md:w-1/2 w-full">
+        <h2 id="section1-title" class="text-white text-[32px] font-bold font-sans"></h2>
+        <div class="relative">
+          <div id="section1-desc"
+            class="text-white/90 text-lg leading-relaxed max-h-[220px] overflow-y-auto pr-3 scroll-smooth no-scrollbar">
+            <!-- description from Strapi -->
+          </div>
+          <div class="absolute bottom-0 left-0 w-full h-[80px] bg-gradient-to-b from-transparent to-[#2a0001] pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Component 2: Our Experiences (LIGHT) ===== -->
+  <section class="relative bg-gray-50 pt-20 pb-20 text-gray-900">
+    <img src="vector3.svg" alt="vector" class="absolute left-0 top-0 h-[100px] opacity-40">
+    <img src="vector4.svg" alt="vector" class="absolute right-0 top-0 h-[100px] opacity-40">
+    <div class="max-w-[1100px] mx-auto flex flex-col gap-10 md:gap-16 px-4">
+      <div class="flex flex-col gap-6 max-w-[900px] mx-auto">
+        <div class="flex justify-center items-center gap-3 md:gap-6">
+          <img src="Star.png" class="w-4 h-4" alt="star">
+          <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-[#2a0001]">Multifaceted Outreach
+        </h3>
+          <img src="Star.png" class="w-4 h-4" alt="star">
+        </div>
+        <p class="text-center text-sm md:text-xl text-gray-600">Enriching lives through spirituality, culture, education and service</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="experience-cards"></div>
+    </div>
+  </section>
+
+  <!-- ===== Component 3: Chinmaya Mission at a Glance (DARK RED) ===== -->
+  <section class="glance-bg text-white py-16 px-4 rounded-3xl max-w-[1100px] mx-auto mt-10 shadow-xl">
+    <h2 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-white mb-12">
+      Chinmaya Mission at a Glance
+    </h2>
+    <div class="flex flex-wrap justify-center gap-10 md:gap-16" id="glance-stats"></div>
+    <div class="glance-divider-line"></div>
+    <div class="flex flex-wrap justify-center gap-10 md:gap-16" id="glance-stats-2"></div>
+  </section>
+
+  <!-- ===== Component 4: Pillars Carousel (LIGHT) ===== -->
+  <section class="py-10 mt-10 bg-white overflow-hidden w-full">
+    <div class="text-center mb-10">
+      <div class="flex justify-center items-center gap-3 md:gap-6">
+        <img src="Star.png" class="w-4 h-4" alt="star">
+        <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-[#2a0001]">The Spiritual Legacy
+      </h3>
+        <img src="Star.png" class="w-4 h-4" alt="star">
+      </div>
+     
+    </div>
+  
+    <div class="relative group overflow-hidden w-full">
+      <div id="pillar-container" class="flex animate-scroll-x gap-6">
+        <!-- Cards injected dynamically -->
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- ===== Component 2.5: Our Essence (GRADIENT CARDS) ===== -->
+  <section class="bg-white py-5 px-4">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <div class="flex justify-center items-center gap-3 md:gap-6">
+        <img src="Star.png" class="w-4 h-4" alt="star">
+        <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-[#2a0001]">Our Essence & Ethos
+      </h3>
+        <img src="Star.png" class="w-4 h-4" alt="star">
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto" id="essence-cards">
+      <!-- Essence cards populated dynamically -->
+    </div>
+  </section>
+
+  <!-- ===== Component 6: Info Section (Two_1034) ===== -->
+  <section class="bg-[#2a0001] py-20 px-4" id="info-section">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16">
+      <!-- Image / Media -->
+      <div class="flex-shrink-0">
+        <img id="info-image" src="logo.png" alt="Logo" class="w-[224px] h-[232px] object-cover rounded-lg" />
+      </div>
+
+      <!-- Text Content -->
+      <div class="flex flex-col items-start gap-6 w-full md:text-start text-center">
+        <p id="info-title" class="text-white font-bold text-4xl leading-tight w-full">
+
+        </p>
+
+        <div id="info-desc" class="text-white text-lg font-normal leading-relaxed w-full text-justify">
+          <!-- info description -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pledge + Tabs Section ===== -->
+  <section class="py-20 px-4 max-w-6xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-8 border border-yellow-400/50 rounded-[32px] p-6">
+
+      <!-- Left Column: Main Info -->
+      <div class="flex-1 p-6 md:p-12">
+        <h3 class="text-2xl md:text-4xl font-bold text-[#2a0001] mb-6 md:mb-8">
+          Chinmaya Mission Pledge
+        </h3>
+        <div id="pledge-left" class="text-gray-800 text-lg leading-relaxed text-justify">
+          <!-- left pledge text populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Right Column: Tabs -->
+      <div class="flex-1 bg-yellow-50 p-6 md:p-12 rounded-3xl border border-yellow-400/50">
+        <!-- Tabs Buttons -->
+        <div class="flex mb-6 justify-evenly" id="tabs-buttons">
+          <button
+            class="px-4 md:px-8 pb-4 md:pb-6 text-[#2a0001] border-b-2 border-yellow-500 font-semibold text-lg md:text-xl"
+            data-tab="0">
+            English
+          </button>
+          <button
+            class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl"
+            data-tab="1">
+            Sanskrit
+          </button>
+          <button
+            class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl"
+            data-tab="2">
+            Hindi
+          </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="tab-content" class="space-y-6 text-[#2a0001] text-lg leading-relaxed text-justify">
+          <!-- tab content populated dynamically -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Scripts: Data Fetch + Populate UI ===== -->
+  <script>
+    /*******************************
+     * Configuration
+     *******************************/
+    const slug = "themission"; // Strapi page slug
+    const API_URL = "https://cms.chinmayamission.com/graphql";
+    const BASE_URL = "https://cms.chinmayamission.com";
+
+    /*******************************
+     * Utility – robust media URL extractor
+     *******************************/
+    function getMediaUrl(media) {
+      if (!media) return "";
+      try {
+        // support media.url
+        if (typeof media === 'string') return media.startsWith('/') ? BASE_URL + media : media;
+        if (media.url) return media.url.startsWith('/') ? BASE_URL + media.url : media.url;
+        // support nested shapes
+        if (media.data?.attributes?.url) return (media.data.attributes.url.startsWith('/') ? BASE_URL + media.data.attributes.url : media.data.attributes.url);
+        if (media.data?.url) return media.data.url.startsWith('/') ? BASE_URL + media.data.url : media.data.url;
+      } catch (e) { /* ignore */ }
+      return "";
+    }
+
+    /*******************************
+     * GraphQL query (pages by slug)
+     *******************************/
+    const graphqlQuery = `
+   query {
+        pages(filters: { slug: { eq: "${slug}" } }) {
+          shortName
+          slug
+          contentSections {
+            __typename
+            ... on ComponentSectionsPageBlockGroup {
+              page_blocks {
+                view_template
+                page_block_title
+                page_block_short_text
+                block_detail {
+                  info_title
+                  info_short_text
+                  info_description
+                  media { url }
+                  info_hyper_link {
+                  url
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+
+    /*******************************
+     * loadPageData: populates dynamic sections
+     *******************************/
+    async function loadPageData() {
+      try {
+        const apiUrl = `https://cms.chinmayamission.com/api/pages?filters[slug][$eq]=${slug}&populate[contentSections][populate]=*`;
+
+        const restRes = await axios.get(apiUrl, {
+          timeout: 10000,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        });
+        const restPage = restRes.data?.data?.[0];
+        if (!restPage) {
+        
+        } else {
+         
+          window.restPageData = restPage; // Store globally for debugging
+        }
+
+        const res = await axios.post(API_URL, { query: graphqlQuery });
+        const page = res.data?.data?.pages?.[0];
+        if (!page) {
+          console.warn("No page data found for slug:", slug);
+          ensureFallbackContent();
+          return;
+        }
+
+        const sections = page.contentSections?.[0]?.page_blocks || [];
+        
+        // Clear containers to avoid duplicates
+        document.getElementById("experience-cards").innerHTML = "";
+        document.getElementById("glance-stats").innerHTML = "";
+        document.getElementById("glance-stats-2").innerHTML = "";
+        document.getElementById("pillar-container").innerHTML = "";
+        document.getElementById("essence-cards").innerHTML = "";
+
+        /* ------------------------------
+           Section 1:
+           ------------------------------ */
+        const heroBlock = sections.find(b => (b.view_template || "").toLowerCase().includes("two_1033") || (b.page_block_title || "").toLowerCase().includes("knowledge"));
+       
+        if (heroBlock && heroBlock.block_detail?.[0]) {
+          const d = heroBlock.block_detail[0];
+          const mediaUrl = getMediaUrl(d.media?.url ? { url: d.media.url } : d.media);
+          document.getElementById("section1-title").innerText = d.info_title || "";
+          document.getElementById("section1-desc").innerHTML = d.info_description || "";
+          if (mediaUrl) {
+            document.getElementById("section1-image").innerHTML =
+              `<img src="${mediaUrl}" class="w-[462px] h-[260px] rounded-2xl object-cover shadow-lg">`;
+          }
+        }
+
+
+        /* ------------------------------
+           Section 2:
+           ------------------------------ */
+        const experienceBlocks = page.contentSections?.[1]?.page_blocks || [];
+        const experiencetitle = restPageData.contentSections?.[1].page_blocks[0];
+
+        const expLinks = [
+          "https://www.chinmayamission.com/global/spiritual-forums",
+          "https://www.chinmayamission.com/global/chinmaya-vishwavidyapeeth-1",
+          "https://www.chinmayamission.com/global/vedicgita-1",
+          "https://www.chinmayamission.com/global/spiritual-education",
+          "https://www.chinmayamission.com/global/academic-education",
+          "https://www.upanishadganga.com/",
+          "https://www.chinmayamission.com/global/cord-1",
+          "https://www.chinmayamission.com/global/sacred-sanctuaries-1"
+          // Add more links if needed
+        ];
+
+    
+        const expContainer = document.getElementById("experience-cards");
+       
+
+        experienceBlocks.forEach(block => {
+      
+
+          block.block_detail?.forEach((d, i) => {
+            const img = getMediaUrl(d.media?.url ? { url: d.media.url } : d.media);
+            const link = expLinks[i] || "#";
+
+            // Create card wrapper div instead of direct <a>
+            const card = document.createElement("div");
+            card.className =
+              "group relative flex md:flex-row flex-col py-[16px] px-[24px] items-center md:gap-[40px] gap-4 rounded-3xl border border-gray-300 bg-white shadow-sm transition-all duration-500 w-full hover:border-yellow-600 hover:bg-yellow-50";
+
+            // Card content
+            card.innerHTML = `
+      <div class="relative rounded-full w-[100px] h-[100px] flex justify-center items-center overflow-hidden bg-gray-100 flex-shrink-0">
+        <img src="${img}" alt="${d.info_title || ''}" class="w-full h-full object-contain rounded-full">
+      </div>
+      <div class="flex-1 min-w-[280px] max-w-[450px] flex flex-col justify-start">
+        <h2 class="text-[#2a0001] text-lg font-semibold mb-2">${d.info_title || ""}</h2>
+        <p class="text-gray-600 text-sm leading-relaxed mb-3">${d.info_description || ""}</p>
+        <span class="text-yellow-500 text-sm font-medium inline-flex items-center gap-1  group-hover:text-yellow-600 transition-all">Know More →</span>
+      </div>
+    `;
+
+            // ✅ Make card clickable only on hover
+            card.addEventListener("mouseenter", () => {
+              card.addEventListener("click", handleClick);
+              card.style.cursor = "pointer"; // Show pointer cursor
+            });
+            card.addEventListener("mouseleave", () => {
+              card.removeEventListener("click", handleClick);
+              card.style.cursor = "default";
+            });
+
+            function handleClick() {
+              if (link && link !== "#") {
+                window.open(link, "_blank", "noopener,noreferrer");
+              }
+            }
+
+            expContainer.appendChild(card);
+          });
+        });
+
+        /* ------------------------------
+           Section 3: Glance -> one_1_1007 (or contains 'glance')
+           ------------------------------ */
+        const glanceBlocks = page.contentSections?.[3]?.page_blocks || [];
+
+        const glanceContainer = document.getElementById("glance-stats");
+        const glanceContainer2 = document.getElementById("glance-stats-2");
+        // const glanceBlocks = sections.filter(b => (b.view_template || "").toLowerCase().includes("one_1_1007") || (b.view_template || "").toLowerCase().includes("glance") || (b.page_block_title || "").toLowerCase().includes("glance"));
+        let stats = [];
+        glanceBlocks.forEach(block => {
+          block.block_detail?.forEach(d => {
+            const icon = getMediaUrl(d.media?.url ? { url: d.media.url } : d.media);
+            stats.push({
+              icon,
+              alt: d.info_title || "",
+              number: d.info_title || "",
+              label: d.info_short_text || ""
+            });
+          });
+        });
+        stats.forEach((stat, index) => {
+          const statElement = document.createElement('div');
+          statElement.className = "flex flex-col items-center min-w-[180px] text-center";
+          statElement.innerHTML = `
+                <img src="${stat.icon}" alt="${stat.alt}" class="stat-icon">
+                <h3 class="text-2xl md:text-3xl font-bold mb-1">${stat.number}</h3>
+                <p class="text-gray-200 text-sm md:text-base">${stat.label}</p>`;
+          if (index < 4) glanceContainer.appendChild(statElement);
+          else glanceContainer2.appendChild(statElement);
+        });
+
+        /* ------------------------------
+           Section 4: Pillars -> one_1_1010 (or contains 'pillar')
+           ------------------------------ */
+        /* ------------------------------
+   Section 4: Pillars -> one_1_1010 (or contains 'pillar')
+------------------------------ */
+const pillarBlocks = page.contentSections?.[4]?.page_blocks || [];
+const pillarContainer = document.getElementById("pillar-container");
+
+const links = [
+    "https://www.chinmayamission.com/global/tapovan-maharaj-1",
+    "https://www.chinmayamission.com/global/swami-chinmayananda-1",
+    "https://www.chinmayamission.com/global/swami-tejomayananda-1",
+    "https://www.chinmayamission.com/global/swami-swaroopananda-1",
+    "https://www.chinmayamission.com/global/swamins-and-brahmacharins"
+  ];
+
+let pillarsArr = [];
+
+pillarBlocks.forEach(block => {
+  block.block_detail?.forEach((d, i) => {
+    const img = getMediaUrl(d.media?.url ? { url: d.media.url } : d.media);
+    pillarsArr.push({
+      img,
+      alt: d.info_title || "",
+      name: d.info_title || "",
+      title: d.info_description || "",
+      link: links[i] || "#",
+    });
+  });
+});
+
+// Duplicate once for smooth looping
+const allPillars = [...pillarsArr, ...pillarsArr];
+
+allPillars.forEach(pillar => {
+  const card = document.createElement("div");
+  card.className =
+    "w-[260px] sm:w-[280px] md:w-[320px] bg-white rounded-2xl overflow-hidden shadow-md mx-3 flex-shrink-0 border border-gray-200";
+  card.innerHTML = `
+    <div class="relative">
+      <img src="${pillar.img}" alt="${pillar.alt}" class="w-full h-[320px] sm:h-[340px] object-cover" />
+      <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent"></div>
+    </div>
+    <div class="p-5 relative z-10">
+      <h3 class="text-lg font-semibold text-gray-800 mb-1">${pillar.name}</h3>
+      <p class="text-sm text-[#2a0001] mb-3">${pillar.title}</p>
+      <a href="${pillar.link}" target="_blank"
+        class="text-yellow-500 text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all hover:text-yellow-600">
+        Know More →
+      </a>
+    </div>
+  `;
+  pillarContainer.appendChild(card);
+});
+
+      
+        /* ------------------------------
+           Section Essence -> one_1_1014 (or contains 'essence')
+           ------------------------------ */
+        const essenceBlocks = page.contentSections?.[5]?.page_blocks || [];
+        const essenceContainer = document.getElementById("essence-cards");
+        // const essenceBlocks = sections.filter(b => (b.view_template || "").toLowerCase().includes("one_1_1014") || (b.view_template || "").toLowerCase().includes("essence") || (b.page_block_title || "").toLowerCase().includes("essence"));
+        essenceBlocks.forEach(block => {
+          block.block_detail?.forEach(d => {
+            const img = getMediaUrl(d.media?.url ? { url: d.media.url } : d.media);
+            const div = document.createElement("div");
+            div.className = "relative w-full max-w-md rounded-3xl p-[1px] overflow-hidden mx-auto";
+            div.innerHTML = `
+              <div class="absolute inset-0 rounded-3xl our-essence-card"></div>
+              <div class="relative bg-white rounded-3xl p-8 flex flex-col items-center text-center">
+                <img src="${img}" alt="${d.info_title || ''}" class="w-20 h-20 mb-4" />
+                <h3 class="text-yellow-600 text-2xl font-bold mb-4">${d.info_title || ''}</h3>
+                <p class="text-gray-700 text-lg">${d.info_description || ''}</p>
+              </div>`;
+            essenceContainer.appendChild(div);
+          });
+        });
+
+        /* ------------------------------
+           Section Info & Pledge Tabs -> one_1_1016 (or contains 'info'/'pledge')
+           ------------------------------ */
+        const infoBlocks = page.contentSections?.[6]?.page_blocks || [];
+       
+
+        // const infoBlocks = sections.filter(b => (b.view_template || "").toLowerCase().includes("one_1_1016") || (b.view_template || "").toLowerCase().includes("info") || (b.page_block_title || "").toLowerCase().includes("pledge") || (b.page_block_title || "").toLowerCase().includes("info"));
+        // Use first block_detail for info section (image + description)
+        if (infoBlocks[0] && infoBlocks[0].block_detail?.[0]) {
+          const inf = infoBlocks[0].block_detail[0];
+          const url = getMediaUrl(inf.media?.url ? { url: inf.media.url } : inf.media);
+          if (url) document.getElementById("info-image").src = url;
+          document.getElementById("info-title").innerText = inf.info_title || document.getElementById("info-title").innerText;
+          document.getElementById("info-desc").innerHTML = inf.info_description || "";
+        }
+
+        // Pledge tabs: try to pick three block_detail entries from infoBlocks (or block titled 'pledge')
+        let pledgeSources = [];
+        const pledgeBlocks = page.contentSections?.[7]?.page_blocks || [];
+        // find block with page_block_title containing 'pledge' first
+        // const pledgeBlocks = sections.filter(b => (b.page_block_title || "").toLowerCase().includes("pledge") || (b.view_template || "").toLowerCase().includes("one_1_1016"));
+        if (pledgeBlocks.length) {
+          pledgeBlocks.forEach(pb => pb.block_detail?.forEach(d => pledgeSources.push(d)));
+        } else if (infoBlocks.length) {
+          // use all block_details from first infoBlock
+          infoBlocks.forEach(b => b.block_detail?.forEach(d => pledgeSources.push(d)));
+        }
+       
+        // prepare three tabs (English, Sanskrit, Hindi) using available data; fallback to built-in text if missing
+        const tabContents = [
+          pledgeSources[1]?.info_description || `We stand as one family, bound to each other with love and respect...`,
+          pledgeSources[2]?.info_description || `चिन्तन्य मिषान प्रतिष्ठा ... (Sanskrit fallback)`,
+          pledgeSources[3]?.info_description || `चिन्मय मिशन प्रतिज्ञा ... (Hindi fallback)`
+        ];
+        // left pledge description (use first pledgeSource title or fallback)
+        document.getElementById("pledge-left").innerHTML = pledgeSources[0]?.info_description || `
+          <p>
+            In the ninth chapter of the Bhagavad Geeta, Shri Krishna says, "One who makes an inner resolve
+            and takes a firm decision to follow the path of righteousness should be considered a sadhu".
+          </p>
+          <p class="mt-4">
+            A pledge is a sankalpa or a vow. It is a decision that helps to bring about an inner
+            transformation. You become a seeker the moment you take a sankalpa or decision. It is this sankalpa shakti which
+            acts as the catalyst that changes an ordinary man into a historic personality.
+          </p>
+        `;
+
+        // populate tabs
+        const tabsButtons = document.querySelectorAll('#tabs-buttons button');
+        const tabContent = document.getElementById('tab-content');
+        // initialize first tab
+        tabContent.innerHTML = `<p>${tabContents[0]}</p>`;
+        tabsButtons.forEach((button, idx) => {
+          button.addEventListener('click', () => {
+            tabsButtons.forEach(btn => {
+              btn.classList.remove('text-[#2a0001]', 'border-yellow-500', 'font-semibold');
+              btn.classList.add('text-gray-600', 'border-transparent', 'font-normal');
+            });
+            button.classList.add('text-[#2a0001]', 'border-yellow-500', 'font-semibold');
+            button.classList.remove('text-gray-600', 'border-transparent', 'font-normal');
+
+            const index = idx;
+            tabContent.innerHTML = `<p>${tabContents[index]}</p>`;
+          });
+        });
+
+      } catch (err) {
+        console.error("GraphQL Fetch Error:", err);
+      } finally {
+        // After attempting to load dynamic content, if any key container is empty, populate static fallback content
+        // ensureFallbackContent();
+      }
+    }
+
+
+
+    // Initialize
+    loadPageData();
+  </script>
+</body>
+
+</html>
