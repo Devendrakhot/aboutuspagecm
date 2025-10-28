@@ -354,22 +354,7 @@
      *******************************/
     async function loadPageData() {
       try {
-        const apiUrl = `https://cms.chinmayamission.com/api/pages?filters[slug][$eq]=${slug}&populate[contentSections][populate]=*`;
-
-        const restRes = await axios.get(apiUrl, {
-          timeout: 10000,
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        });
-        const restPage = restRes.data?.data?.[0];
-        if (!restPage) {
-        
-        } else {
-         
-          window.restPageData = restPage; // Store globally for debugging
-        }
+       
 
         const res = await axios.post(API_URL, { query: graphqlQuery });
         const page = res.data?.data?.pages?.[0];
@@ -663,3 +648,4 @@ allPillars.forEach(pillar => {
 </body>
 
 </html>
+
