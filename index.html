@@ -40,7 +40,7 @@
 
     /* Glance Section */
     .glance-bg {
-      background: linear-gradient(135deg, #5e1111 0%, #7c1a1a 25%, #c94a4a 50%, #7c1a1a 75%, #5e1111 100%);
+      background: linear-gradient(135deg, #2A0001 0%, #2A0001 25%, #993434 50%, #2A0001 75%, #2A0001 100%);
       background-size: cover;
       background-position: center;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -422,7 +422,7 @@
             // Create card wrapper div instead of direct <a>
             const card = document.createElement("div");
             card.className =
-              "group relative flex md:flex-row flex-col py-[16px] px-[24px] items-center md:gap-[40px] gap-4 rounded-3xl border border-gray-300 bg-white shadow-sm transition-all duration-500 w-full hover:border-yellow-600 hover:bg-yellow-50";
+              "group relative flex md:flex-row flex-col py-[16px] px-[24px] items-center md:gap-[40px] gap-4 rounded-3xl border border-gray-300 bg-white shadow-sm transition-all duration-500 w-full hover:border-[#2A0001] hover:bg-yellow-50";
 
             // Card content
             card.innerHTML = `
@@ -432,7 +432,7 @@
       <div class="flex-1 min-w-[280px] max-w-[450px] flex flex-col justify-start">
         <h2 class="text-[#2a0001] text-lg font-semibold mb-2">${d.info_title || ""}</h2>
         <p class="text-gray-600 text-sm leading-relaxed mb-3">${d.info_description || ""}</p>
-        <span class="text-yellow-500 text-sm font-medium inline-flex items-center gap-1  group-hover:text-yellow-600 transition-all">Know More →</span>
+        <span class="text-[#B2A8A0] text-sm font-medium inline-flex items-center gap-1  group-hover:text-[#2A0001] transition-all">Know More →</span>
       </div>
     `;
 
@@ -535,7 +535,7 @@ allPillars.forEach(pillar => {
       <h3 class="text-lg font-semibold text-gray-800 mb-1">${pillar.name}</h3>
       <p class="text-sm text-[#2a0001] mb-3">${pillar.title}</p>
       <a href="${pillar.link}" target="_blank"
-        class="text-yellow-500 text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all hover:text-yellow-600">
+        class="text-[#B2A8A0] text-sm font-medium inline-flex items-center gap-1 hover:gap-2 transition-all hover:text-[#2A0001]">
         Know More →
       </a>
     </div>
@@ -559,7 +559,7 @@ allPillars.forEach(pillar => {
               <div class="absolute inset-0 rounded-3xl our-essence-card"></div>
               <div class="relative bg-white rounded-3xl p-8 flex flex-col items-center text-center">
                 <img src="${img}" alt="${d.info_title || ''}" class="w-20 h-20 mb-4" />
-                <h3 class="text-yellow-600 text-2xl font-bold mb-4">${d.info_title || ''}</h3>
+                <h3 class="text-[#2A0001] text-2xl font-bold mb-4">${d.info_title || ''}</h3>
                 <p class="text-gray-700 text-lg">${d.info_description || ''}</p>
               </div>`;
             essenceContainer.appendChild(div);
@@ -648,5 +648,4 @@ allPillars.forEach(pillar => {
 </body>
 
 </html>
-
 
