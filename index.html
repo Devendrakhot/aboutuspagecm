@@ -161,7 +161,7 @@
     <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-10 relative px-4 items-center">
       <div id="section1-image" class="max-w-[462px] w-full flex items-center justify-center"></div>
       <div class="flex flex-col gap-4 md:w-1/2 w-full">
-        <h2 id="section1-title" class=" text-[32px] font-bold text-primary"></h2>
+        <h2 id="section1-title" class=" text-[32px] font-bold text-white"></h2>
         <div class="relative">
           <div id="section1-desc"
             class="text-white/90 text-lg leading-relaxed max-h-[220px] overflow-y-auto pr-3 scroll-smooth no-scrollbar"></div>
@@ -171,8 +171,45 @@
     </div>
   </section>
 
+  <section class="flex flex-col justify-center items-center text-center px-6 py-16">
+    <div class="max-w-4xl fade-up space-y-6">
+      <h1 class="text-5xl md:text-6xl font-bold glow-text">
+        Bringing Knowledge to Light
+      </h1>
+
+      <p class="text-lg md:text-xl italic text-slate-600">
+        Knowledge is not information. It is awareness. When wisdom awakens, life itself shines.
+      </p>
+
+      <div class="text-left space-y-5 mt-8 text-slate-700 leading-relaxed bg-white backdrop-blur-sm rounded-3xl shadow-md p-8">
+        <p>
+          <strong class="text-slate-900">Chinmaya Prakashan</strong> is the publishing wing of Chinmaya Mission,
+          envisioned by <strong class="text-slate-900">Swami Chinmayananda</strong> to place the eternal truths of Vedanta
+          in the hands of all. Each book serves to illuminate the path, guiding the reader from confusion to clarity,
+          from weakness to strength, and toward the discovery of true joy.
+        </p>
+
+        <p>
+          For the child, these works are songs and stories that plant seeds of wonder. For the youth, they are sparks that ignite
+          curiosity, fuel dreams, and turn energy into purpose. For the householder and professional, they are steady guides through
+          life’s demands. For the seeker, they are treasures that open the doors to enquiry, devotion, and freedom.
+        </p>
+
+        <p>
+          Through a collection of over <strong>900 multilingual books, e-books, audios, and videos</strong>, this light reaches
+          readers everywhere. It is made accessible to the global network of Chinmaya Mission Centres through direct channels like
+          the <strong>Chinmaya Vani</strong> online store and a wide array of distribution partners worldwide.
+        </p>
+
+        <p class="italic border-l-4 border-[#DAA864] pl-4 font-medium text-slate-800">
+          “Bringing Knowledge to Light” is not a motto. It is an endeavour to make wisdom a living presence, guiding every home,
+          every heart, every generation.
+        </p>
+      </div>
+    </div>
+  </section>
   <!-- ========== SECTION 2 ========== -->
-  <section class="relative bg-gray-50 pt-20 pb-20 text-gray-900">
+  <section class="relative bg-gray-50 pt-15 pb-20 text-gray-900">
     <img src="vector3.svg" alt="vector" class="absolute left-0 top-0 h-[100px] opacity-40">
     <img src="vector4.svg" alt="vector" class="absolute right-0 top-0 h-[100px] opacity-40">
     <div class="max-w-[1100px] mx-auto flex flex-col gap-10 md:gap-16 px-4">
@@ -190,7 +227,7 @@
 
   <!-- ========== SECTION 3 ========== -->
   <section class="glance-bg text-white py-16 px-4 rounded-3xl max-w-[1100px] mx-auto mt-10 shadow-xl">
-    <h2 class="text-center text-primary [28px] sm:text-[32px] md:text-[48px] font-bold mb-12">
+    <h2 class="text-center text-white [28px] sm:text-[32px] md:text-[48px] font-bold mb-12">
       Chinmaya Mission at a Glance
     </h2>
     <div class="flex flex-wrap justify-center gap-10 md:gap-16" id="glance-stats"></div>
@@ -225,28 +262,40 @@
   </section>
 
   <!-- ========== SECTION 6 ========== -->
-  <section class="bg-[#2a0001] py-20 px-4" id="info-section">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16">
-      <div class="flex-shrink-0">
-        <img id="info-image" src="logo.png" alt="Logo" class="w-[224px] h-[232px] object-cover rounded-lg" />
-      </div>
+<!-- ========== SECTION 6.1: Chinmaya Mission Logo: Symbolism & Meaning ========== -->
+<section id="logo-meaning-section" class="bg-darkBlue py-10 md:py-20">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-center items-center gap-16 px-4">
+  
+      <!-- Image -->
+      <img id="logo-meaning-image"
+           src="logo.png"
+           alt="Chinmaya Mission Logo"
+           class="w-[224px] h-[232px] object-contain rounded-lg" />
+  
+      <!-- Text -->
       <div class="flex flex-col items-start gap-6 w-full md:text-start text-center">
-        <p id="info-title" class="text-primary font-bold text-4xl leading-tight w-full"></p>
-        <div id="info-desc" class="text-white text-lg font-normal leading-relaxed w-full text-justify"></div>
+        <p id="logo-meaning-title"
+           class="text-white font-[Philosopher] text-4xl font-bold leading-[1.2em] w-full">
+        </p>
+  
+        <div id="logo-meaning-desc"
+             class="text-white font-[Lexend] text-lg font-normal leading-[1.25em] w-full text-justify">
+        </div>
       </div>
     </div>
   </section>
+  
 
   <!-- ========== SECTION 7 (Pledge + Tabs) ========== -->
   <section class="py-20 px-4 max-w-6xl mx-auto">
-    <div class="flex flex-col lg:flex-row gap-8 border border-yellow-400/50 rounded-[32px] p-6">
+    <div class="flex flex-col lg:flex-row gap-8 border border-[rgba(16.5%,0%,0.4%,20%)] rounded-[32px] p-6">
       <div class="flex-1 p-6 md:p-12">
         <h3 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8">Chinmaya Mission Pledge</h3>
         <div id="pledge-left" class="text-gray-800 text-lg leading-relaxed text-justify"></div>
       </div>
-      <div class="flex-1 bg-yellow-50 p-6 md:p-12 rounded-3xl border border-yellow-400/50">
+      <div class="flex-1  p-6 md:p-12 rounded-3xl border border-[rgba(16.5%,0%,0.4%,20%)]">
         <div class="flex mb-6 justify-evenly" id="tabs-buttons">
-          <button class="px-4 md:px-8 pb-4 md:pb-6 text-[#2a0001] border-b-2 border-yellow-500 font-semibold text-lg md:text-xl" data-tab="0">English</button>
+          <button class="px-4 md:px-8 pb-4 md:pb-6 text-[#2a0001] border-b-2 border-[#DAA864] font-semibold text-lg md:text-xl" data-tab="0">English</button>
           <button class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl" data-tab="1">Sanskrit</button>
           <button class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl" data-tab="2">Hindi</button>
         </div>
@@ -386,7 +435,7 @@
             // Create card wrapper div instead of direct <a>
             const card = document.createElement("div");
             card.className =
-              "group relative flex md:flex-row flex-col py-[16px] px-[24px] items-center md:gap-[40px] gap-4 rounded-3xl border border-gray-300 bg-white shadow-sm transition-all duration-500 w-full hover:border-[#2A0001] hover:bg-yellow-50";
+              "group relative flex md:flex-row flex-col py-[16px] px-[24px] items-center md:gap-[40px] gap-4 rounded-3xl border border-gray-300 bg-white shadow-sm transition-all duration-500 w-full hover:border-[#2A0001] ";
 
             // Card content
             card.innerHTML = `
@@ -533,18 +582,37 @@ allPillars.forEach(pillar => {
         /* ------------------------------
            Section Info & Pledge Tabs -> one_1_1016 (or contains 'info'/'pledge')
            ------------------------------ */
-        const infoBlocks = page.contentSections?.[6]?.page_blocks || [];
-       
+     /* ------------------------------
+   Section 6.1: Chinmaya Mission Logo: Symbolism & Meaning
+------------------------------ */
+const logoMeaningBlocks = page.contentSections?.[6]?.page_blocks || [];
 
-        // const infoBlocks = sections.filter(b => (b.view_template || "").toLowerCase().includes("one_1_1016") || (b.view_template || "").toLowerCase().includes("info") || (b.page_block_title || "").toLowerCase().includes("pledge") || (b.page_block_title || "").toLowerCase().includes("info"));
-        // Use first block_detail for info section (image + description)
-        if (infoBlocks[0] && infoBlocks[0].block_detail?.[0]) {
-          const inf = infoBlocks[0].block_detail[0];
-          const url = getMediaUrl(inf.media?.url ? { url: inf.media.url } : inf.media);
-          if (url) document.getElementById("info-image").src = url;
-          document.getElementById("info-title").innerText = inf.info_title || document.getElementById("info-title").innerText;
-          document.getElementById("info-desc").innerHTML = inf.info_description || "";
-        }
+if (logoMeaningBlocks.length > 0) {
+  const logoData = logoMeaningBlocks[0].block_detail?.[0];
+  if (logoData) {
+    const imgUrl = getMediaUrl(logoData.media?.url ? { url: logoData.media.url } : logoData.media);
+    const title = logoData.info_title || "Chinmaya Mission Logo: Symbolism & Meaning";
+    const desc = logoData.info_description || "";
+
+    document.getElementById("logo-meaning-title").innerText = title;
+    document.getElementById("logo-meaning-desc").innerHTML = desc;
+    if (imgUrl) document.getElementById("logo-meaning-image").src = imgUrl;
+  }
+} else {
+  // fallback static data
+  document.getElementById("logo-meaning-title").innerText = "Chinmaya Mission Logo: Symbolism & Meaning";
+  document.getElementById("logo-meaning-desc").innerHTML = `
+    This logo reflects Chinmaya Mission’s vision — spreading Vedantic wisdom, facilitating self-discovery, 
+    and rendering service to humanity.<br><br>
+    The lamp represents the ethical life of virtues needed to ignite the flame of inner wisdom,
+    while the swan symbolises the power of discernment — the ability to distinguish truth from illusion.<br><br>
+    Just as one lamp kindles many others and retains its own brilliance, one Realised Master brings transformation 
+    to countless individuals and remains undiminished. Like light dispels darkness, the universal Reality shines within us,
+    enlivening and illuminating all knowledge as the Divine presence within.
+  `;
+  document.getElementById("logo-meaning-image").src = "logo.png";
+}
+
 
         // Pledge tabs: try to pick three block_detail entries from infoBlocks (or block titled 'pledge')
         let pledgeSources = [];
@@ -585,10 +653,10 @@ allPillars.forEach(pillar => {
         tabsButtons.forEach((button, idx) => {
           button.addEventListener('click', () => {
             tabsButtons.forEach(btn => {
-              btn.classList.remove('text-[#2a0001]', 'border-yellow-500', 'font-semibold');
+              btn.classList.remove('text-[#2a0001]', 'border-[#DAA864]', 'font-semibold');
               btn.classList.add('text-gray-600', 'border-transparent', 'font-normal');
             });
-            button.classList.add('text-[#2a0001]', 'border-yellow-500', 'font-semibold');
+            button.classList.add('text-[#2a0001]', 'border-[#DAA864]', 'font-semibold');
             button.classList.remove('text-gray-600', 'border-transparent', 'font-normal');
 
             const index = idx;
