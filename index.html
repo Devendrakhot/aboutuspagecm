@@ -10,18 +10,36 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --primary-color: #2a0001;
+      --secondary-color: #DAA864;
+    }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      color: var(--primary-color);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Philosopher', sans-serif;
+      color: var(--primary-color);
+    }
+
     /* Custom Theme */
     .bg-darkBlue {
-      background-color: #0f172a;
+      background-color: var(--primary-color);
     }
 
     .text-primary {
-      color: #facc15;
+      color: var(--secondary-color);
     }
 
     .text-primary-title {
-      color: #facc15;
+      color: var(--secondary-color);
     }
 
     .text-primary-text {
@@ -40,7 +58,7 @@
 
     /* Glance Section */
     .glance-bg {
-      background: linear-gradient(135deg, #2A0001 0%, #2A0001 25%, #993434 50%, #2A0001 75%, #2A0001 100%);
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color) 25%, #993434 50%, var(--primary-color) 75%, var(--primary-color) 100%);
       background-size: cover;
       background-position: center;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -62,9 +80,9 @@
       transform: translateX(-50%);
       width: 8px;
       height: 4px;
-      background: linear-gradient(45deg, #facc15, #f59e0b);
+      background: linear-gradient(45deg, var(--secondary-color), #f5c16b);
       border-radius: 2px;
-      box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+      box-shadow: 0 0 10px rgba(218, 168, 100, 0.5);
     }
 
     .glance-divider-line::after {
@@ -89,80 +107,71 @@
 
     /* Our Essence Gradient */
     .our-essence-card {
-      background: linear-gradient(180deg, rgba(255, 153, 102, 0.5) 0%, rgba(255, 153, 102, 0.3) 40%, rgba(255, 153, 102, 0) 80%);
+      background:linear-gradient(180deg, rgba(218, 168, 100, 0.4) 0%, rgb(255 255 255) 40%, rgb(255 255 255) 80%);
     }
 
- /* 🌐 Desktop smooth infinite scroll */
-@keyframes scroll-x-desktop {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+    /* Smooth Scroll Animations */
+    @keyframes scroll-x-desktop {
+      0% {
+        transform: translateX(0);
+      }
 
-/* 📱 Mobile full scroll */
-@keyframes scroll-x-mobile {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
+      100% {
+        transform: translateX(-50%);
+      }
+    }
 
-/* Default: desktop animation */
-.animate-scroll-x {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: scroll-x-desktop 8s linear infinite;
-  will-change: transform;
-}
+    @keyframes scroll-x-mobile {
+      0% {
+        transform: translateX(0);
+      }
 
-/* Pause on hover (desktop only) */
-.group:hover .animate-scroll-x {
-  animation-play-state: paused;
-}
+      100% {
+        transform: translateX(-100%);
+      }
+    }
 
-/* ✅ Mobile version — scrolls full width & faster */
-@media (max-width: 1024px) {
-  .animate-scroll-x {
-    animation: scroll-x-mobile 8s linear infinite !important;
-  }
-}
+    .animate-scroll-x {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: scroll-x-desktop 8s linear infinite;
+      will-change: transform;
+    }
 
+    .group:hover .animate-scroll-x {
+      animation-play-state: paused;
+    }
 
-
+    @media (max-width: 1024px) {
+      .animate-scroll-x {
+        animation: scroll-x-mobile 8s linear infinite !important;
+      }
+    }
   </style>
 </head>
 
 <body class="bg-white relative text-gray-900">
 
-  <!-- ===== Component 1: From Knowledge to Wisdom (DARK) ===== -->
+  <!-- ========== SECTION 1 ========== -->
   <section id="section1" class="relative bg-[#2a0001] pt-20 pb-20 text-white overflow-hidden">
     <img src="Vector1.png" alt="vector"
       class="absolute left-0 bottom-0 h-[80px] md:h-[100px] lg:h-[180px] w-auto opacity-60">
     <img src="Vector2.png" alt="vector"
       class="absolute right-0 bottom-0 h-[80px] md:h-[100px] lg:h-[180px] w-auto rotate-90 opacity-60">
     <div class="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-10 relative px-4 items-center">
-      <div id="section1-image" class="max-w-[462px] w-full flex items-center justify-center">
-        <!-- Image populated dynamically -->
-      </div>
+      <div id="section1-image" class="max-w-[462px] w-full flex items-center justify-center"></div>
       <div class="flex flex-col gap-4 md:w-1/2 w-full">
-        <h2 id="section1-title" class="text-white text-[32px] font-bold font-sans"></h2>
+        <h2 id="section1-title" class=" text-[32px] font-bold text-primary"></h2>
         <div class="relative">
           <div id="section1-desc"
-            class="text-white/90 text-lg leading-relaxed max-h-[220px] overflow-y-auto pr-3 scroll-smooth no-scrollbar">
-            <!-- description from Strapi -->
-          </div>
+            class="text-white/90 text-lg leading-relaxed max-h-[220px] overflow-y-auto pr-3 scroll-smooth no-scrollbar"></div>
           <div class="absolute bottom-0 left-0 w-full h-[80px] bg-gradient-to-b from-transparent to-[#2a0001] pointer-events-none"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Component 2: Our Experiences (LIGHT) ===== -->
+  <!-- ========== SECTION 2 ========== -->
   <section class="relative bg-gray-50 pt-20 pb-20 text-gray-900">
     <img src="vector3.svg" alt="vector" class="absolute left-0 top-0 h-[100px] opacity-40">
     <img src="vector4.svg" alt="vector" class="absolute right-0 top-0 h-[100px] opacity-40">
@@ -170,8 +179,7 @@
       <div class="flex flex-col gap-6 max-w-[900px] mx-auto">
         <div class="flex justify-center items-center gap-3 md:gap-6">
           <img src="Star.png" class="w-4 h-4" alt="star">
-          <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-[#2a0001]">Multifaceted Outreach
-        </h3>
+          <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold">Multifaceted Outreach</h3>
           <img src="Star.png" class="w-4 h-4" alt="star">
         </div>
         <p class="text-center text-sm md:text-xl text-gray-600">Enriching lives through spirituality, culture, education and service</p>
@@ -180,9 +188,9 @@
     </div>
   </section>
 
-  <!-- ===== Component 3: Chinmaya Mission at a Glance (DARK RED) ===== -->
+  <!-- ========== SECTION 3 ========== -->
   <section class="glance-bg text-white py-16 px-4 rounded-3xl max-w-[1100px] mx-auto mt-10 shadow-xl">
-    <h2 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-white mb-12">
+    <h2 class="text-center text-primary [28px] sm:text-[32px] md:text-[48px] font-bold mb-12">
       Chinmaya Mission at a Glance
     </h2>
     <div class="flex flex-wrap justify-center gap-10 md:gap-16" id="glance-stats"></div>
@@ -190,113 +198,69 @@
     <div class="flex flex-wrap justify-center gap-10 md:gap-16" id="glance-stats-2"></div>
   </section>
 
-  <!-- ===== Component 4: Pillars Carousel (LIGHT) ===== -->
+  <!-- ========== SECTION 4 ========== -->
   <section class="py-10 mt-10 bg-white overflow-hidden w-full">
     <div class="text-center mb-10">
       <div class="flex justify-center items-center gap-3 md:gap-6">
         <img src="Star.png" class="w-4 h-4" alt="star">
-        <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-[#2a0001]">The Spiritual Legacy
-      </h3>
+        <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold">The Spiritual Legacy</h3>
         <img src="Star.png" class="w-4 h-4" alt="star">
       </div>
-     
     </div>
-  
     <div class="relative group overflow-hidden w-full">
-      <div id="pillar-container" class="flex animate-scroll-x gap-6">
-        <!-- Cards injected dynamically -->
-      </div>
+      <div id="pillar-container" class="flex animate-scroll-x gap-6"></div>
     </div>
   </section>
-  
-  
-  <!-- ===== Component 2.5: Our Essence (GRADIENT CARDS) ===== -->
+
+  <!-- ========== SECTION 5 ========== -->
   <section class="bg-white py-5 px-4">
     <div class="max-w-6xl mx-auto text-center mb-12">
       <div class="flex justify-center items-center gap-3 md:gap-6">
         <img src="Star.png" class="w-4 h-4" alt="star">
-        <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold text-[#2a0001]">Our Essence & Ethos
-      </h3>
+        <h3 class="text-center text-[28px] sm:text-[32px] md:text-[48px] font-bold">Our Essence & Ethos</h3>
         <img src="Star.png" class="w-4 h-4" alt="star">
       </div>
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto" id="essence-cards">
-      <!-- Essence cards populated dynamically -->
-    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto" id="essence-cards"></div>
   </section>
 
-  <!-- ===== Component 6: Info Section (Two_1034) ===== -->
+  <!-- ========== SECTION 6 ========== -->
   <section class="bg-[#2a0001] py-20 px-4" id="info-section">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-16">
-      <!-- Image / Media -->
       <div class="flex-shrink-0">
         <img id="info-image" src="logo.png" alt="Logo" class="w-[224px] h-[232px] object-cover rounded-lg" />
       </div>
-
-      <!-- Text Content -->
       <div class="flex flex-col items-start gap-6 w-full md:text-start text-center">
-        <p id="info-title" class="text-white font-bold text-4xl leading-tight w-full">
-
-        </p>
-
-        <div id="info-desc" class="text-white text-lg font-normal leading-relaxed w-full text-justify">
-          <!-- info description -->
-        </div>
+        <p id="info-title" class="text-primary font-bold text-4xl leading-tight w-full"></p>
+        <div id="info-desc" class="text-white text-lg font-normal leading-relaxed w-full text-justify"></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Pledge + Tabs Section ===== -->
+  <!-- ========== SECTION 7 (Pledge + Tabs) ========== -->
   <section class="py-20 px-4 max-w-6xl mx-auto">
     <div class="flex flex-col lg:flex-row gap-8 border border-yellow-400/50 rounded-[32px] p-6">
-
-      <!-- Left Column: Main Info -->
       <div class="flex-1 p-6 md:p-12">
-        <h3 class="text-2xl md:text-4xl font-bold text-[#2a0001] mb-6 md:mb-8">
-          Chinmaya Mission Pledge
-        </h3>
-        <div id="pledge-left" class="text-gray-800 text-lg leading-relaxed text-justify">
-          <!-- left pledge text populated dynamically -->
-        </div>
+        <h3 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8">Chinmaya Mission Pledge</h3>
+        <div id="pledge-left" class="text-gray-800 text-lg leading-relaxed text-justify"></div>
       </div>
-
-      <!-- Right Column: Tabs -->
       <div class="flex-1 bg-yellow-50 p-6 md:p-12 rounded-3xl border border-yellow-400/50">
-        <!-- Tabs Buttons -->
         <div class="flex mb-6 justify-evenly" id="tabs-buttons">
-          <button
-            class="px-4 md:px-8 pb-4 md:pb-6 text-[#2a0001] border-b-2 border-yellow-500 font-semibold text-lg md:text-xl"
-            data-tab="0">
-            English
-          </button>
-          <button
-            class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl"
-            data-tab="1">
-            Sanskrit
-          </button>
-          <button
-            class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl"
-            data-tab="2">
-            Hindi
-          </button>
+          <button class="px-4 md:px-8 pb-4 md:pb-6 text-[#2a0001] border-b-2 border-yellow-500 font-semibold text-lg md:text-xl" data-tab="0">English</button>
+          <button class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl" data-tab="1">Sanskrit</button>
+          <button class="px-4 md:px-8 pb-4 md:pb-6 text-gray-600 border-b-2 border-transparent font-normal text-lg md:text-xl" data-tab="2">Hindi</button>
         </div>
-
-        <!-- Tab Content -->
-        <div id="tab-content" class="space-y-6 text-[#2a0001] text-lg leading-relaxed text-justify">
-          <!-- tab content populated dynamically -->
-        </div>
+        <div id="tab-content" class="space-y-6 text-[#2a0001] text-lg leading-relaxed text-justify"></div>
       </div>
-
     </div>
   </section>
 
-  <!-- ===== Scripts: Data Fetch + Populate UI ===== -->
+  <!-- ========== Script (unchanged dynamic Strapi fetch) ========== -->
   <script>
-    /*******************************
+   /*******************************
      * Configuration
      *******************************/
-    const slug = "themission"; // Strapi page slug
+     const slug = "themission"; // Strapi page slug
     const API_URL = "https://cms.chinmayamission.com/graphql";
     const BASE_URL = "https://cms.chinmayamission.com";
 
@@ -481,7 +445,7 @@
           statElement.className = "flex flex-col items-center min-w-[180px] text-center";
           statElement.innerHTML = `
                 <img src="${stat.icon}" alt="${stat.alt}" class="stat-icon">
-                <h3 class="text-2xl md:text-3xl font-bold mb-1">${stat.number}</h3>
+                <h3 class="text-2xl md:text-3xl text-primary font-bold mb-1">${stat.number}</h3>
                 <p class="text-gray-200 text-sm md:text-base">${stat.label}</p>`;
           if (index < 4) glanceContainer.appendChild(statElement);
           else glanceContainer2.appendChild(statElement);
@@ -559,7 +523,7 @@ allPillars.forEach(pillar => {
               <div class="absolute inset-0 rounded-3xl our-essence-card"></div>
               <div class="relative bg-white rounded-3xl p-8 flex flex-col items-center text-center">
                 <img src="${img}" alt="${d.info_title || ''}" class="w-20 h-20 mb-4" />
-                <h3 class="text-[#2A0001] text-2xl font-bold mb-4">${d.info_title || ''}</h3>
+                <h3 class="text-[#2A0001] text-2xl  mb-4">${d.info_title || ''}</h3>
                 <p class="text-gray-700 text-lg">${d.info_description || ''}</p>
               </div>`;
             essenceContainer.appendChild(div);
@@ -645,7 +609,6 @@ allPillars.forEach(pillar => {
     // Initialize
     loadPageData();
   </script>
+
 </body>
-
 </html>
-
